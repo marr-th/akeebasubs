@@ -525,17 +525,19 @@ function validateAddress()
 						//$('#vatcountry').css('display','none');
 					}
 
-					Object.keys(akeebasubs_eu_configuration).forEach(function(key){
-						if (key == country)
+				var k = country in akeebasubs_eu_configuration
+					
+						if (k)
 						{
 							$('#vatfields').css('display', 'block');
 							//$('#vatcountry').css('display','inline-block');
 
-							var ccode = akeebasubs_eu_configuration[key][1];
+							var ccode = akeebasubs_eu_configuration[country][1];
 							$('#vatcountry').text(ccode);
 
-						}
-					});
+						}else{
+							$('#vatcountry').text('');
+							}
 				}
 			}
 
@@ -670,17 +672,19 @@ function validateBusiness()
 			//$('#vatcountry').css('display','none');
 		}
 
-		Object.keys(akeebasubs_eu_configuration).forEach(function(key){
-			if (key == country)
-			{
-				$('#vatfields').css('display', 'block');
-				//$('#vatcountry').css('display','inline-block');
+	var k = country in akeebasubs_eu_configuration
+					
+						if (k)
+						{
+							$('#vatfields').css('display', 'block');
+							//$('#vatcountry').css('display','inline-block');
 
-				var ccode = akeebasubs_eu_configuration[key][1];
-				$('#vatcountry').text(ccode);
+							var ccode = akeebasubs_eu_configuration[country][1];
+							$('#vatcountry').text(ccode);
 
-			}
-		});
+						}else{
+							$('#vatcountry').text('');
+							}
 
 		if (akeebasubs_personalinfo == 1)
 		{
